@@ -159,6 +159,7 @@ function Participant(game, playersprite)
 			this.run();
 		else
 		{
+			console.log("Time elapsed = "+this.game.time.elapsedSince(this.timeWait));//debug
 			this.beCarried();
 		}
 	}
