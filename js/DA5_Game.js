@@ -73,6 +73,7 @@ ThrowingFriend.Game.prototype = {
 			this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.pickedUp, null, friend);
 		else
 			this.game.physics.arcade.collide(friend.sprite, player.sprite);
+		
 		this.game.physics.arcade.collide(friend.sprite, layer);
 		
 		friend.update();
@@ -138,7 +139,7 @@ function Participant(game, playersprite)
 	this.sprite = this.game.add.sprite(60, 3100, 'purpleBlock');
 	this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	
-	this.waitTime = this.game.time.now;
+	this.waitTime = -2500;//this.game.time.now;
 	this.held = false;
 	
 	//this.goright = false;
