@@ -69,7 +69,7 @@ ThrowingFriend.Game.prototype = {
 		this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
 		//this.game.physics.arcade.collide(humans, layer);
 		//this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
-		if(friend.held === false)// && friend.thrown === false)
+		if(friend.held === false && friend.thrown === false)
 			this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.pickedUp, null, friend);
 		else
 			this.game.physics.arcade.collide(friend.sprite, player.sprite);//so the friend sits on top of the player
@@ -141,7 +141,7 @@ function Participant(game, playersprite)
 	
 	//this.waitTime = -2500;//this.game.time.now;
 	this.held = false;
-	this.thrown = false;
+	this.isThrown = false;
 	
 	//this.goright = false;
 	//this.goleft = false;
@@ -156,7 +156,7 @@ function Participant(game, playersprite)
 	
 	this.update = function()
 	{
-		if(this.held === false)// this.thrown === false)// && this.game.time.elapsedSince(this.timeWait) > 2500)
+		if(this.held === false && this.isThrown === false)// && this.game.time.elapsedSince(this.timeWait) > 2500)
 		{
 			this.run();
 		}
@@ -211,17 +211,17 @@ function Participant(game, playersprite)
 		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED;
 		this.sprite.body.velocity.y = -this.THROWN_SPEED*(1/2);
 		//this.waitTime = this.game.time.now;
-		this.thrown = true;
+		this.isThrown = true;
 		this.held = false;
 	}
 	
 	this.hitLand = function(self, layer)//accepts two arguments for compatibility with collide
 	{
 		console.log("Hittin' the floor");//debug
-		if(this.thrown === true)
+		if(this.isThrown === true)
 		{
 			console.log("Landed!");//debug
-			this.thrown = false;
+			this.isThrown = false;
 		}
 		else{}//do nothing, let idle or others take care of it
 	}
