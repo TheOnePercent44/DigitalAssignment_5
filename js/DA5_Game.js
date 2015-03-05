@@ -24,7 +24,7 @@ ThrowingFriend.Game = function (game) {
 
 };
 
-var player, layer, humans, friends, leftKey, rightKey, spaceKey, upKey, aKey, sKey, dKey, wKey;
+var player, layer, enemies, friend, leftKey, rightKey, spaceKey, upKey, aKey, sKey, dKey, wKey;
 ThrowingFriend.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -55,7 +55,15 @@ ThrowingFriend.Game.prototype = {
 		//this.game.physics.p2.gravity.y = 300;//300;
 		this.game.physics.arcade.gravity.y = 300;//300;
 		
-		player = new newPlayer(this.game, 15, 3100);//physics enables in Catfighter
+		enemies = this.game.add.group();
+		enemies.enableBody = true;
+		enemies.physicsBodyType = Phaser.Physics.ARCADE;
+		for(var i = 0; i < 10; i++)
+		{
+			enemies.add(newEnemy(this.game));
+		}
+		
+		player = new newPlayer(this.game, 15, 1568);//physics enables in Catfighter
 		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
 		player.sprite.body.collideWorldBounds = true;
 		
@@ -128,6 +136,18 @@ function Enemy(game, xcoord, ycoord)
 {
 	this.game = game;
 	this.sprite = this.game.add.sprite(xcoord, ycoord, 'yellowBlock');
+	this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+	
+	this.MAX_SPEED = 200;
+	
+	this.update = function()
+	{
+		var point = this.game.rnd.integerInRange(1, 8);
+		if(point%2 === 0)
+			this.sprite.body.velocity.x = this.MAX_SPEED;
+		else
+			this.sprite.body.velocity.x = -this.MAX_SPEED;
+	}
 	
 	return this;
 };
@@ -136,7 +156,7 @@ function Participant(game, playersprite)
 {
 	this.game = game;
 	this.target = playersprite;
-	this.sprite = this.game.add.sprite(60, 3100, 'purpleBlock');
+	this.sprite = this.game.add.sprite(60, 1568, 'purpleBlock');
 	this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	
 	//this.waitTime = -2500;//this.game.time.now;
@@ -149,8 +169,8 @@ function Participant(game, playersprite)
 	this.MIN_DISTANCE = 100;
 	//this.MAX_DISTANCE = 32
 	
-	this.MAX_SPEED = 150;
-	this.THROWN_SPEED = 300;
+	this.MAX_SPEED = 180;
+	this.THROWN_SPEED = 320;
 	this.DRAG = 1000;
 	this.ACCEL = 300;
 	
@@ -237,7 +257,7 @@ function newEnemy(game)
 	
 	var hume = new Human(game, xcoord, ycoord);
 	game.physics.enable(hume, Phaser.Physics.ARCADE);
-	while(game.physics.arcade.collide(hume, layer) || game.physics.arcade.collide(hume, player) || game.physics.arcade.collide(hume, humans))
+	while(game.physics.arcade.collide(hume, layer) || game.physics.arcade.collide(hume, player) || game.physics.arcade.collide(hume, enemies))
 	{
 		xcoord = game.rnd.integerInRange(16, 3184);
 		ycoord = game.rnd.integerInRange(16, 3184);
