@@ -71,12 +71,12 @@ ThrowingFriend.Game.prototype = {
 		//this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
 		if(friend.held === false && friend.thrown === false)
 			this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.pickedUp, null, friend);
-		//else if(friend.thrown === true)
-		//	this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.hitLand, null, friend);
+		else if(friend.thrown === true)
+			this.game.physics.arcade.collide(friend.sprite, layer, friend.hitLand, null, friend);
 		else
 			this.game.physics.arcade.collide(friend.sprite, player.sprite);//so the friend sits on top of the player
 		
-		this.game.physics.arcade.collide(friend.sprite, layer, friend.hitLand, null, friend);
+		this.game.physics.arcade.collide(friend.sprite, layer);
 		
 		friend.update();
 		
