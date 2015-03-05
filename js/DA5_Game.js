@@ -139,7 +139,7 @@ function Participant(game, playersprite)
 	this.sprite = this.game.add.sprite(60, 3100, 'purpleBlock');
 	this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	
-	this.waitTime = -2500;//this.game.time.now;
+	//this.waitTime = -2500;//this.game.time.now;
 	this.held = false;
 	this.thrown = false;
 	
@@ -206,7 +206,7 @@ function Participant(game, playersprite)
 		console.log("I'VE BEEN THROWN!");//debug
 		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED;
 		this.sprite.body.velocity.y = -this.THROWN_SPEED*(1/2);
-		this.waitTime = this.game.time.now;
+		//this.waitTime = this.game.time.now;
 		this.thrown = true;
 		this.held = false;
 	}
