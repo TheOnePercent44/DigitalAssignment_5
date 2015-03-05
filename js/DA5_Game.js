@@ -69,7 +69,7 @@ ThrowingFriend.Game.prototype = {
 		this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
 		//this.game.physics.arcade.collide(humans, layer);
 		//this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
-		if(friend.held === false)
+		if(friend.held === false && (this.game.time.now-friend.timeWait) > 1000)
 			this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.pickedUp, null, friend);
 		else
 			this.game.physics.arcade.collide(friend.sprite, player.sprite);
