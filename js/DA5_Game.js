@@ -75,7 +75,7 @@ ThrowingFriend.Game.prototype = {
 			this.game.physics.arcade.collide(friend.sprite, player.sprite);
 		this.game.physics.arcade.collide(friend.sprite, layer);
 		
-		friends.update();
+		friend.update();
 		
 		if(rightKey.isDown)
 		{
