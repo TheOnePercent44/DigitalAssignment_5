@@ -196,6 +196,7 @@ function Participant(game, playersprite)
 		this.sprite.x = this.target.x;
 		this.sprite.y = this.target.y-33;
 		this.held = true;
+		this.isThrown = false;
 	}
 	
 	this.beCarried = function()
