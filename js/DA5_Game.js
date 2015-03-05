@@ -189,8 +189,8 @@ function Participant(game, playersprite)
 	
 	this.beCarried = function()
 	{
-		this.sprite.velocity.x = this.target.velocity.x;
-		this.sprite.velocity.y = this.target.velocity.y;
+		this.sprite.body.velocity.x = this.target.body.velocity.x;
+		this.sprite..body.velocity.y = this.target.body.velocity.y;
 	}
 	
 	this.thrown = function(scalar)
