@@ -138,19 +138,18 @@ function Enemy(game, xcoord, ycoord)
 	this.sprite = this.game.add.sprite(xcoord, ycoord, 'yellowBlock');
 	this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	
-	this.MAX_SPEED = 200;
-	
-	this.update = function()
-	{
-		var point = this.game.rnd.integerInRange(1, 8);
-		if(point%2 === 0)
-			this.sprite.body.velocity.x = this.MAX_SPEED;
-		else
-			this.sprite.body.velocity.x = -this.MAX_SPEED;
-	}
-	
-	return this;
+	return this.sprite;
 };
+
+function EnemyUpdate(enemysprite, game)
+{
+	var MAX_SPEED = 200;
+	var point = game.rnd.integerInRange(1, 8);
+	if(point%2 === 0)
+		enemysprite.body.velocity.x = MAX_SPEED;
+	else
+		enemysprite.body.velocity.x = -MAX_SPEED;
+}
 
 function Participant(game, playersprite)
 {
