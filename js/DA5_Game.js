@@ -157,7 +157,9 @@ function Participant(game, playersprite)
 	this.update = function()
 	{
 		if(this.held === false && this.thrown === false)// && this.game.time.elapsedSince(this.timeWait) > 2500)
+		{
 			this.run();
+		}
 		else if(this.held === true)
 		{
 			//console.log("Time elapsed = "+this.game.time.elapsedSince(this.timeWait));//debug
@@ -213,9 +215,10 @@ function Participant(game, playersprite)
 	
 	this.hitLand = function(self, layer)//accepts two arguments for compatibility with collide
 	{
-		//console.log("Landed!");//debug
+		console.log("Hittin' the floor");//debug
 		if(this.thrown === true)
 		{
+			console.log("Landed!");//debug
 			this.thrown = false;
 		}
 		else{}//do nothing, let idle or others take care of it
