@@ -60,7 +60,7 @@ ThrowingFriend.Game.prototype = {
 		player.sprite.body.collideWorldBounds = true;
 		
 		friend = new Participant(this.game, player.sprite);
-		friend.sprite.body.collideWorldBounds = true;
+		//friend.sprite.body.collideWorldBounds = true;
     },
 
     update: function () {
