@@ -177,7 +177,7 @@ function Participant(game, playersprite)
 		} 
 		else
 		{
-			zombieFriend.body.velocity.x = 0;
+			this.sprite.body.velocity.x = 0;
 		}
 	}
 	
