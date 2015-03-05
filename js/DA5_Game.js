@@ -232,6 +232,11 @@ function Participant(game, playersprite)
 		//console.log("I'm being carried!");//debug
 		this.sprite.body.velocity.x = this.target.body.velocity.x;
 		this.sprite.body.velocity.y = this.target.body.velocity.y;
+		if(this.sprite.x != this.target.x || this.sprite.y != this.target.y-33)
+		{
+			this.sprite.x = this.target.x;
+			this.sprite.y = this.target.y-33;
+		}
 	}
 	
 	this.thrown = function(scalar)
