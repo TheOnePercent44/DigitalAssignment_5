@@ -197,7 +197,7 @@ function Participant(game, playersprite)
 	this.thrown = function(scalar)
 	{
 		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED;
-		this.sprite.body.velocity.y = this.THROWN_SPEED*(1/2);
+		this.sprite.body.velocity.y = -this.THROWN_SPEED*(1/6);
 		this.waitTime = this.game.time.now;
 		this.held = false;
 	}
