@@ -105,7 +105,7 @@ ThrowingFriend.Game.prototype = {
 		{
 			//?
 		}
-		if(upKey.isPressed())
+		if(upKey.isDown)
 		{
 			player.jump();//WHEEEEEEEEEEE
 		}
