@@ -155,11 +155,11 @@ function Participant(game, playersprite)
 	
 	this.update = function()
 	{
-		if(this.held === false && this.game.time.elapsedSince(this.timeWait) > 2500)
+		if(this.held === false)// && this.game.time.elapsedSince(this.timeWait) > 2500)
 			this.run();
 		else
 		{
-			console.log("Time elapsed = "+this.game.time.elapsedSince(this.timeWait));//debug
+			//console.log("Time elapsed = "+this.game.time.elapsedSince(this.timeWait));//debug
 			this.beCarried();
 		}
 	}
