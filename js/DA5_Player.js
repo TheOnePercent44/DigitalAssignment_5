@@ -30,7 +30,7 @@ function newPlayer(game, xcoord, ycoord)
 	{
 		if(this.inAir != true)
 		{
-			this.sprite.body.velocity.x = 100;
+			this.sprite.body.velocity.x = this.MAX_SPEED;
 			//this.sprite.scale.x = 1;
 		}
 	}
@@ -39,7 +39,7 @@ function newPlayer(game, xcoord, ycoord)
 	{
 		if(this.inAir != true)
 		{
-			this.sprite.body.velocity.x = -100;
+			this.sprite.body.velocity.x = -this.MAX_SPEED;
 			//this.sprite.scale.x = -1;
 		}
 	}
