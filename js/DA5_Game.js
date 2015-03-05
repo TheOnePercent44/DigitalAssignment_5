@@ -75,7 +75,7 @@ ThrowingFriend.Game.prototype = {
 
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
 		this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
-		//this.game.physics.arcade.collide(humans, layer);
+		this.game.physics.arcade.collide(enemies, layer);
 		//this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
 		if(friend.held === false)// && friend.isThrown === false)
 			this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.pickedUp, null, friend);
@@ -85,6 +85,7 @@ ThrowingFriend.Game.prototype = {
 		this.game.physics.arcade.collide(friend.sprite, layer, friend.hitLand, null, friend);
 		
 		friend.update();
+		enemies.forEachAlive(EnemyUpdate, this, this.game);
 		
 		if(rightKey.isDown)
 		{
