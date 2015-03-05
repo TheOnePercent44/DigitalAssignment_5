@@ -147,7 +147,7 @@ function Participant(game, playersprite)
 	this.MIN_DISTANCE = 100;
 	//this.MAX_DISTANCE = 32
 	
-	this.MAX_SPEED = 350;
+	this.MAX_SPEED = 150;
 	this.THROWN_SPEED = 600;
 	this.DRAG = 1000;
 	this.ACCEL = 300;
@@ -196,7 +196,7 @@ function Participant(game, playersprite)
 	
 	this.thrown = function(scalar)
 	{
-		this.sprite.velocity.x = scalar*this.THROWN_SPEED;
+		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED;
 		this.waitTime = this.game.time.now;
 		this.held = false;
 	}

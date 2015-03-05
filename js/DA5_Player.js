@@ -7,7 +7,7 @@ function newPlayer(game, xcoord, ycoord)
 	this.sprite.body.allowGravity = true;
 	this.inAir = false;
 	
-	this.MAX_SPEED = 500; // pixels/second
+	this.MAX_SPEED = 250; // pixels/second
     this.ACCELERATION = 1500; // pixels/second/second
     this.DRAG = 600; // pixels/second
     //this.GRAVITY = 2600; // pixels/second/second
