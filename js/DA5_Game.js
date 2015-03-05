@@ -85,7 +85,7 @@ ThrowingFriend.Game.prototype = {
 		this.game.physics.arcade.collide(friend.sprite, layer, friend.hitLand, null, friend);
 		
 		if(friend.isThrown === true)
-			this.game.physics.arcade.collide(friend.sprite, enemies, EnemyDie, null this);
+			this.game.physics.arcade.collide(friend.sprite, enemies, EnemyDie, null, this);
 		
 		friend.update();
 		enemies.forEachAlive(EnemyUpdate, this, this.game);
