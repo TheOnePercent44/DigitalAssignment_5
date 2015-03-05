@@ -252,9 +252,9 @@ function Participant(game, playersprite)
 	this.hitLand = function(self, layer)//accepts two arguments for compatibility with collide
 	{
 		//console.log("Hittin' the floor");//debug
-		if(this.isThrown === true && this.sprite.body.touching.down)
+		if(this.isThrown === true)// && this.sprite.body.touching.down)
 		{
-			console.log("Landed!");//debug
+			//console.log("Landed!");//debug
 			this.isThrown = false;
 		}
 		else{}//do nothing, let idle or others take care of it
