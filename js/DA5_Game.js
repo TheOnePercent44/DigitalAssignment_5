@@ -255,7 +255,7 @@ function newEnemy(game)
 	xcoord = game.rnd.integerInRange(16, 3184);
 	ycoord = game.rnd.integerInRange(16, 3184);
 	
-	var hume = new Human(game, xcoord, ycoord);
+	var hume = new Enemy(game, xcoord, ycoord);
 	game.physics.enable(hume, Phaser.Physics.ARCADE);
 	while(game.physics.arcade.collide(hume, layer) || game.physics.arcade.collide(hume, player) || game.physics.arcade.collide(hume, enemies))
 	{
