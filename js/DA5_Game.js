@@ -156,7 +156,7 @@ function Participant(game, playersprite)
 	
 	this.update = function()
 	{
-		if(this.held === false && this.thrown === false)// && this.game.time.elapsedSince(this.timeWait) > 2500)
+		if(this.held === false)// this.thrown === false)// && this.game.time.elapsedSince(this.timeWait) > 2500)
 		{
 			this.run();
 		}
