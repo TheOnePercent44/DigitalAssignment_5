@@ -165,7 +165,9 @@ function Participant(game, playersprite)
 			//console.log("Time elapsed = "+this.game.time.elapsedSince(this.timeWait));//debug
 			this.beCarried();
 		}
-		else{}//being thrown, await collision
+		else{
+			console.log("I am doing nothing for some reason.");//debug
+		}//being thrown, await collision
 	}
 	
 	this.run = function()
