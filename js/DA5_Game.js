@@ -60,6 +60,7 @@ ThrowingFriend.Game.prototype = {
 		player.sprite.body.collideWorldBounds = true;
 		
 		friend = new Participant(this.game, player.sprite);
+		friend.sprite.body.collideWorldBounds = true;
     },
 
     update: function () {
@@ -135,7 +136,6 @@ function Participant(game, playersprite)
 	this.game = game;
 	this.target = playersprite;
 	this.sprite = this.game.add.sprite(60, 3100, 'purpleBlock');
-	this.sprite.body.collideWorldBounds = true;
 	
 	this.waitTime = this.game.time.now;
 	this.held = false;
