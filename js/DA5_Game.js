@@ -184,16 +184,9 @@ function Participant(game, playersprite)
 	
 	this.pickedUp = function(self, player)//accepts two arguments for compatibility with collide
 	{
-		if(this.game.time.elapsedSince(this.timeWait) > 780)
-		{
-			this.sprite.x = this.target.x;
-			this.sprite.y = this.target.y-33;
-			this.held = true;
-		}
-		else
-		{
-			console.log("The time is: "+this.game.time.elapsedSince(this.timeWait));
-		}
+		this.sprite.x = this.target.x;
+		this.sprite.y = this.target.y-33;
+		this.held = true;
 	}
 	
 	this.beCarried = function()
