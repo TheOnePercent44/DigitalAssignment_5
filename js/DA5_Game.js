@@ -165,6 +165,7 @@ function Participant(game, playersprite)
 	
 	this.run = function()
 	{
+		console.log("Running away!");//debug
 		var distance = this.game.math.distance(this.sprite.x, this.sprite.y, this.target.x, this.target.y);
 		
 		// If the distance > MIN_DISTANCE then move
@@ -184,6 +185,7 @@ function Participant(game, playersprite)
 	
 	this.pickedUp = function(self, player)//accepts two arguments for compatibility with collide
 	{
+		console.log("Picked up friend");//debug
 		this.sprite.x = this.target.x;
 		this.sprite.y = this.target.y-33;
 		this.held = true;
@@ -191,12 +193,14 @@ function Participant(game, playersprite)
 	
 	this.beCarried = function()
 	{
+		console.log("I'm being carried!");//debug
 		this.sprite.body.velocity.x = this.target.body.velocity.x;
 		this.sprite.body.velocity.y = this.target.body.velocity.y;
 	}
 	
 	this.thrown = function(scalar)
 	{
+		console.log("I'VE BEEN THROWN!");//debug
 		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED;
 		this.sprite.body.velocity.y = -this.THROWN_SPEED*(1/2);
 		this.waitTime = this.game.time.now;
