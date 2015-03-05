@@ -90,10 +90,16 @@ ThrowingFriend.Game.prototype = {
 				player.idle();
 		}
 		//if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
-		if(spaceKey.isDown && friend.held == true)
+		if(friend.held == true)
 		{
 			//do the throwing thing
+			if(aKey.isDown)
+				friend.thrown(-1);//throw right
+			else if(dKey.isDown)
+				friend.thrown(1);
+			else{}//do nothing
 		}
+		
 		else
 		{
 			//?
@@ -129,12 +135,13 @@ function Participant(game, playersprite)
 	this.game = game;
 	this.target = playersprite;
 	this.sprite = this.game.add.sprite(60, 3100, 'purpleBlock');
+	this.sprite.body.collideWorldBounds = true;
+	
 	this.waitTime = this.game.time.now;
 	this.held = false;
-	//this.zombies.collideWorldBounds = true;
 	
-	this.goright = false;
-	this.goleft = false;
+	//this.goright = false;
+	//this.goleft = false;
 	
 	this.MIN_DISTANCE = 42;
 	//this.MAX_DISTANCE = 32
