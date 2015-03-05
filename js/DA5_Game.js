@@ -69,7 +69,7 @@ ThrowingFriend.Game.prototype = {
 		this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
 		//this.game.physics.arcade.collide(humans, layer);
 		//this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
-		if(friend.held === false && (this.game.time.now-friend.timeWait) > 1000)
+		if(friend.held === false)
 			this.game.physics.arcade.collide(friend.sprite, player.sprite, friend.pickedUp, null, friend);
 		else
 			this.game.physics.arcade.collide(friend.sprite, player.sprite);
@@ -184,9 +184,16 @@ function Participant(game, playersprite)
 	
 	this.pickedUp = function(self, player)//accepts two arguments for compatibility with collide
 	{
-		this.sprite.x = this.target.x;
-		this.sprite.y = this.target.y-33;
-		this.held = true;
+		if(this.game.time.now - this.timeWait > 780)
+		{
+			this.sprite.x = this.target.x;
+			this.sprite.y = this.target.y-33;
+			this.held = true;
+		}
+		else
+		{
+			console.log("The time is: "+(this.game.time.now-this.timeWait));
+		}
 	}
 	
 	this.beCarried = function()
