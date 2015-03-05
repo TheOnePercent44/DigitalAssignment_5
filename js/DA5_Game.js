@@ -237,7 +237,7 @@ function Participant(game, playersprite)
 	this.thrown = function(scalar)
 	{
 		//console.log("I'VE BEEN THROWN!");//debug
-		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED+this.target.sprite.body.velocity.x;
+		this.sprite.body.velocity.x = scalar*this.THROWN_SPEED+this.target.body.velocity.x;
 		this.sprite.body.velocity.y = -this.THROWN_SPEED*(1/2);
 		//this.waitTime = this.game.time.now;
 		this.isThrown = true;
