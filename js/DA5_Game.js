@@ -155,7 +155,7 @@ function Participant(game, playersprite)
 	
 	this.update = function()
 	{
-		if(this.held === false && (this.game.time.now - this.waitTime) > 2500)
+		if(this.held === false && this.game.time.elapsedSince(this.timeWait) > 2500)
 			this.run();
 		else
 		{
@@ -184,7 +184,7 @@ function Participant(game, playersprite)
 	
 	this.pickedUp = function(self, player)//accepts two arguments for compatibility with collide
 	{
-		if(this.game.time.now - this.timeWait > 780)
+		if(this.game.time.elapsedSince(this.timeWait) > 780)
 		{
 			this.sprite.x = this.target.x;
 			this.sprite.y = this.target.y-33;
@@ -192,7 +192,7 @@ function Participant(game, playersprite)
 		}
 		else
 		{
-			console.log("The time is: "+(this.game.time.now-this.timeWait));
+			console.log("The time is: "+this.game.time.elapsedSince(this.timeWait));
 		}
 	}
 	
